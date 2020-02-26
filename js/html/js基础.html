@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    // [className,],
+    // [teacher],
+    // [subject]
+    var School = [
+        [],
+        []
+    ];
+
+
+    function className(teacher, studentNumber, subject) {
+        this.teacher = teacher;
+        this.student = studentNumber;
+        this.subject = subject;
+    }
+
+    function student(age, sex) {
+        this.age = age;
+        this.sex = sex;
+    }
+    while (true) {
+        var num = prompt('请输入：');
+        if (num == '1') {
+            var classname = prompt('请输入班级名：');
+            var teacher = prompt('请输入班主任名：');
+            var studentNumber = prompt('请输入班级人数：');
+            var subject = prompt('请输入科目数：');
+            classname = new className(teacher, studentNumber, subject);
+            for (var i = 0; i != School.length; i++) {
+                if (School[i] == undefined) {
+                    School[i] = classname;
+                    break;
+                }
+            }
+            console.log('添加成功!');
+            console.log(School[0]);
+        } else if (num == '2') {
+            var className = prompt('请输入班级名:');
+            for (var i = 0; i < School.length; i++) {
+                if (School[i].teacher == className) {
+                    var studentName = prompt('请输入姓名：');
+                    var studentAge = prompt('请输入年龄：');
+                    var studentSex = prompt('请输入性别：');
+                    studentName = new student(studentAge, studentSex);
+                    for (var j = 0; j != School[i].length; j++) {
+                        if (School[i][j] == undefined) {
+                            School[i][j] = studentName;
+                            break;
+                        }
+                    }
+                }
+            }
+            console.log('添加成功！');
+        } else if (num == '3') {
+            for (var i = 0; i < School.length; i++) {
+                for (var j = 0; j < School[i].length; i++) {
+                    console.log(School[i][j]);
+                }
+            }
+        } else if (num == '-999') {
+            break;
+        } else if (num == '4') {
+            console.log(Math.PI)
+        }
+    }
+</script>
+
+</html>
